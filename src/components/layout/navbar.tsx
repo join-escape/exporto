@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Bug, LogIn, Plus } from "lucide-react";
+import { Bug, LogIn, LogOut, Plus } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -41,28 +41,28 @@ export default async function Navbar() {
         </Button>
 
         {session ? (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Avatar className="h-8 w-8 cursor-pointer">
-                <AvatarImage src={session.user?.image || ""} />
-                <AvatarFallback>{session.user?.name?.[0]}</AvatarFallback>
-              </Avatar>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem className="cursor-pointer" asChild>
-                <Link href="/profile">Profile</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                className="cursor-pointer"
-                onClick={async () => {
+          <>
+            <Button
+              className="cursor-pointer"
+              variant="destructive"
+              size="sm"
+              asChild
+            >
+              <form
+                action={async () => {
                   "use server";
                   await signOut();
                 }}
               >
+                <LogOut className="w-3.5 h-3.5 mr-1" />
                 Sign out
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </form>
+            </Button>
+            <Avatar className="h-8 w-8 cursor-pointer border">
+              <AvatarImage src={session.user?.image || ""} />
+              <AvatarFallback>{session.user?.name?.[0]}</AvatarFallback>
+            </Avatar>
+          </>
         ) : (
           <SignInButton />
         )}
