@@ -18,6 +18,14 @@ export default async function Navbar() {
   const session = await auth();
   const SetThemeButton = getThemeToggler();
 
+  const GITHUB_REPO = "https://github.com/join-escape/exporto";
+  const bugReportUrl = `${GITHUB_REPO}/issues/new?title=${encodeURIComponent(
+    "[Bug Report] "
+  )}`;
+  const requestToolUrl = `${GITHUB_REPO}/issues/new?title=${encodeURIComponent(
+    "[Tool Request] "
+  )}`;
+
   console.log({ session });
   return (
     <div className="py-3 px-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex items-center justify-between sticky top-0 z-10 mb-2">
@@ -27,17 +35,22 @@ export default async function Navbar() {
       <div className="flex items-center gap-2">
         <SetThemeButton />
         <Button variant="ghost" size="sm" asChild>
-          <Link href="/bug-report" className="text-xs">
+          <a
+            href={bugReportUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs"
+          >
             <Bug className="w-3.5 h-3.5 mr-1" />
             Report Bug
-          </Link>
+          </a>
         </Button>
 
         <Button variant="outline" size="sm" asChild>
-          <Link href="/request-tool">
+          <a href={requestToolUrl} target="_blank" rel="noopener noreferrer">
             <Plus className="w-3.5 h-3.5 mr-1" />
             Request Tool
-          </Link>
+          </a>
         </Button>
 
         {session ? (
