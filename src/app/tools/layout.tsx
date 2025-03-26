@@ -10,7 +10,7 @@ export default function ToolsLayout({
   return (
     <>
       <ToolsNavbar currentToolId={params.toolName} />
-      <div className="flex-1">{children}</div>
+      <div className="flex-1 px-4">{children}</div>
     </>
   );
 }

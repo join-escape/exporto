@@ -4,7 +4,7 @@ import { Bug, LogIn, Plus } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <div className="py-3 bg-background flex items-center justify-between sticky top-0 z-10 mb-2">
+    <div className="py-3 px-4 bg-background flex items-center justify-between sticky top-0 z-10 mb-2">
       <Link href="/" className="text-2xl font-bold italic tracking-tight">
         Exporto
       </Link>

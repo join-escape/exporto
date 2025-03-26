@@ -7,6 +7,7 @@ interface ToolsNavbarProps {
 }
 
 export default function ToolsNavbar({ currentToolId }: ToolsNavbarProps) {
+  console.log({ currentToolId });
   return (
     <div className="pt-1 pb-3 sticky top-12 z-10 mb-3">
       <div className="flex items-center gap-1 overflow-x-auto pb-1 no-scrollbar">
@@ -15,12 +16,13 @@ export default function ToolsNavbar({ currentToolId }: ToolsNavbarProps) {
             key={tool.id}
             variant={currentToolId === tool.id ? "secondary" : "ghost"}
             size="sm"
-            className="h-8 flex-shrink-0"
+            className="h-8 flex-shrink-0 disabled:opacity-50"
             asChild
+            disabled={!tool.enabled}
           >
-            <Link href={tool.id}>
+            <Link href={`${tool.id}`}>
               {tool.icon}
-              <span className="ml-1 text-xs">{tool.name}</span>
+              <span className="text-sm">{tool.name}</span>
             </Link>
           </Button>
         ))}
