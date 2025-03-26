@@ -23,7 +23,7 @@ export default async function Page() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen">
       <div className="flex max-w-2xl justify-between w-full">
-        <SetThemeButton />
+        {/* <SetThemeButton /> */}
 
         <div className="flex gap-2 items-center justify-center">
           <svg
