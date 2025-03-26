@@ -15,14 +15,21 @@ export default function ToolsNavbar({ currentToolId }: ToolsNavbarProps) {
             key={tool.id}
             variant={currentToolId === tool.id ? "secondary" : "ghost"}
             size="sm"
-            className="h-8 flex-shrink-0 disabled:opacity-50"
-            asChild
+            className="h-8 flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
+            asChild={tool.enabled}
             disabled={!tool.enabled}
           >
-            <Link href={`tools/${tool.id}`}>
-              {tool.icon}
-              <span className="text-sm">{tool.name}</span>
-            </Link>
+            {tool.enabled ? (
+              <Link href={tool.href} aria-disabled={!tool.enabled}>
+                {tool.icon}
+                <span className="text-sm">{tool.name}</span>
+              </Link>
+            ) : (
+              <div className="flex items-center gap-2">
+                {tool.icon}
+                <span className="text-sm">{tool.name}</span>
+              </div>
+            )}
           </Button>
         ))}
       </div>

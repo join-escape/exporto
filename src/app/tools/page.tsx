@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { TOOLS_CONFIG } from "@/lib/tools/config";
 
 export const metadata = {
@@ -18,10 +19,30 @@ export default async function ToolsPage() {
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {TOOLS_CONFIG.map((tool) => (
-          <Link href={`tools/${tool.id}`} key={tool.id}>
-            <Card className="h-full hover:shadow-md transition-shadow cursor-pointer">
-              <CardContent className="p-4 flex flex-col items-center text-center">
+        {TOOLS_CONFIG.map((tool) =>
+          tool.enabled ? (
+            <Link href={`tools/${tool.id}`} key={tool.id}>
+              <Card className="h-full hover:shadow-md transition-shadow cursor-pointer">
+                <CardContent className="p-4 flex flex-col items-center text-center">
+                  <div className="bg-muted rounded-full p-3 mb-3 mt-3">
+                    {tool.icon}
+                  </div>
+                  <h2 className="text-lg font-medium mb-2">{tool.name}</h2>
+                  <p className="text-sm text-muted-foreground">
+                    {tool.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+          ) : (
+            <Card
+              key={tool.id}
+              className="h-full opacity-60 cursor-not-allowed"
+            >
+              <CardContent className="p-4 flex flex-col items-center text-center relative">
+                <Badge className="absolute right-2 top-2" variant="secondary">
+                  Coming Soon
+                </Badge>
                 <div className="bg-muted rounded-full p-3 mb-3 mt-3">
                   {tool.icon}
                 </div>
@@ -31,8 +52,8 @@ export default async function ToolsPage() {
                 </p>
               </CardContent>
             </Card>
-          </Link>
-        ))}
+          )
+        )}
       </div>
     </div>
   );
