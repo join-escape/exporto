@@ -7,9 +7,8 @@ interface ToolsNavbarProps {
 }
 
 export default function ToolsNavbar({ currentToolId }: ToolsNavbarProps) {
-  console.log({ currentToolId });
   return (
-    <div className="pt-1 pb-3 sticky top-12 z-10 mb-3">
+    <div className="pt-1 pb-3 sticky top-[3.75rem] bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-10 mb-3">
       <div className="flex items-center gap-1 overflow-x-auto pb-1 no-scrollbar">
         {TOOLS_CONFIG.map((tool) => (
           <Button
