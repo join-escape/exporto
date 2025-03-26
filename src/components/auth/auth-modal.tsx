@@ -34,9 +34,9 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               await handleSignIn("github");
             }}
           >
-            <Button 
-              variant="outline" 
-              type="submit" 
+            <Button
+              variant="outline"
+              type="submit"
               className="w-full h-11 text-base transition-colors hover:bg-secondary"
             >
               <Github className="mr-2 h-5 w-5" />
@@ -49,9 +49,9 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               await handleSignIn("google");
             }}
           >
-            <Button 
-              variant="outline" 
-              type="submit" 
+            <Button
+              variant="outline"
+              type="submit"
               className="w-full h-11 text-base transition-colors hover:bg-secondary"
             >
               <Mail className="mr-2 h-5 w-5" />
