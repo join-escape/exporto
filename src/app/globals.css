@@ -75,3 +75,44 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .thin-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
+  .thin-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .thin-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground));
+    border-radius: 2px;
+  }
+  
+  .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--foreground));
+  }
+}
+
+/* Additional utility classes for our monochrome theme */
+.bg-subtle {
+  background-color: hsl(var(--muted) / 0.1);
+}
+
+.bg-subtle-hover:hover {
+  background-color: hsl(var(--muted) / 0.2);
+}
+
+.transition-all-150 {
+  transition: all 150ms ease;
+}

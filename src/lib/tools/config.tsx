@@ -1,0 +1,83 @@
+import {
+  Hash,
+  RefreshCw,
+  Calculator,
+  Clock,
+  Code,
+  FileText,
+  Image,
+  Palette,
+} from "lucide-react";
+
+export const TOOLS_CONFIG = [
+  {
+    id: "text-counter",
+    name: "Word Counter",
+    category: "Text",
+    icon: <Hash className="w-4 h-4" />,
+    description: "Count words, characters, and paragraphs in your text",
+  },
+  {
+    id: "text-case",
+    name: "Case Converter",
+    category: "Text",
+    icon: <RefreshCw className="w-4 h-4" />,
+    description: "Convert text between different case formats",
+  },
+  {
+    id: "calculator",
+    name: "Calculator",
+    category: "Math",
+    icon: <Calculator className="w-4 h-4" />,
+    description: "Perform basic and advanced calculations",
+  },
+  {
+    id: "unit-converter",
+    name: "Unit Converter",
+    category: "Math",
+    icon: <RefreshCw className="w-4 h-4" />,
+    description: "Convert between different units of measurement",
+  },
+  {
+    id: "timezone",
+    name: "Time Zone",
+    category: "Time",
+    icon: <Clock className="w-4 h-4" />,
+    description: "Convert times between different time zones",
+  },
+  {
+    id: "stopwatch",
+    name: "Stopwatch",
+    category: "Time",
+    icon: <Clock className="w-4 h-4" />,
+    description: "Track elapsed time with precision",
+  },
+  {
+    id: "json-formatter",
+    name: "JSON Format",
+    category: "Data",
+    icon: <Code className="w-4 h-4" />,
+    description: "Format and validate JSON data",
+  },
+  {
+    id: "csv-viewer",
+    name: "CSV Viewer",
+    category: "Data",
+    icon: <FileText className="w-4 h-4" />,
+    description: "View and analyze CSV data",
+  },
+  {
+    id: "image-resize",
+    name: "Image Resize",
+    category: "Image",
+    icon: <Image className="w-4 h-4" />,
+    description: "Resize and optimize images",
+  },
+  {
+    id: "color-picker",
+    name: "Color Picker",
+    category: "Image",
+    icon: <Palette className="w-4 h-4" />,
+    description: "Pick and convert colors between formats",
+  },
+];
