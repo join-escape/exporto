@@ -11,7 +11,7 @@ export default function ToolsLayout({
 }) {
   return (
     <>
-      <ToolsNavbar currentToolId={params.toolName} />
+      <ToolsNavbar />
       <div className="flex-1 px-4">{children}</div>
     </>
   );
