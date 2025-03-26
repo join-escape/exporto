@@ -27,7 +27,7 @@ export default async function Navbar() {
   )}`;
 
   return (
-    <div className="py-3 px-2 sm:px-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex items-center justify-between sticky top-0 z-10 mb-2">
+    <div className="py-3 px-2 sm:px-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex items-center justify-between sticky top-0 z-50 mb-2 w-full">
       <Link href="/" className="text-2xl font-bold italic tracking-tight">
         Exporto
       </Link>
