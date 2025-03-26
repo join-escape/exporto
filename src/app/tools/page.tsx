@@ -8,7 +8,7 @@ export const metadata = {
     "Choose from our collection of free, simple online tools to help with everyday tasks.",
 };
 
-export default function ToolsPage() {
+export default async function ToolsPage() {
   return (
     <div className="container mx-auto">
       <h1 className="text-2xl font-bold mb-6">Free Online Tools</h1>

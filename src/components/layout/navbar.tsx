@@ -12,6 +12,8 @@ import { auth, signOut } from "@/server/auth";
 import SignInButton from "../auth/auth-button";
 import { getThemeToggler } from "@/lib/theme/get-theme-button";
 
+export const runtime = "edge";
+
 export default async function Navbar() {
   const session = await auth();
   const SetThemeButton = getThemeToggler();

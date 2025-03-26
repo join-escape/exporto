@@ -19,7 +19,7 @@ export default function ToolsNavbar({ currentToolId }: ToolsNavbarProps) {
             asChild
             disabled={!tool.enabled}
           >
-            <Link href={`${tool.id}`}>
+            <Link href={`tools/${tool.id}`}>
               {tool.icon}
               <span className="text-sm">{tool.name}</span>
             </Link>

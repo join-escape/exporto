@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Count words, characters, and paragraphs in your text",
 };
 
-export default function WordCounterPage() {
+export default async function WordCounterPage() {
   return (
     <div>
       <WordCounterContent />

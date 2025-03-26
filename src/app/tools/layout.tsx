@@ -1,5 +1,7 @@
 import ToolsNavbar from "@/components/layout/tools-navbar";
 
+export const runtime = "edge";
+
 export default function ToolsLayout({
   children,
   params,
