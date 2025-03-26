@@ -42,22 +42,21 @@ export default async function Navbar() {
 
         {session ? (
           <>
-            <Button
-              className="cursor-pointer"
-              variant="destructive"
-              size="sm"
-              asChild
+            <form
+              action={async () => {
+                "use server";
+                await signOut();
+              }}
             >
-              <form
-                action={async () => {
-                  "use server";
-                  await signOut();
-                }}
+              <Button
+                className="cursor-pointer"
+                variant="destructive"
+                size="sm"
               >
                 <LogOut className="w-3.5 h-3.5 mr-1" />
                 Sign out
-              </form>
-            </Button>
+              </Button>
+            </form>
             <Avatar className="h-8 w-8 cursor-pointer border">
               <AvatarImage src={session.user?.image || ""} />
               <AvatarFallback>{session.user?.name?.[0]}</AvatarFallback>
