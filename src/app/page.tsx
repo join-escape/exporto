@@ -13,7 +13,7 @@ export default async function Page() {
   const session = await auth();
 
   const userCount = await db
-    .select({
+    ?.select({
       count: sql<number>`count(*)`.mapWith(Number),
     })
     .from(users);
@@ -98,7 +98,7 @@ export default async function Page() {
 
         <div className="border p-4 rounded-lg bg-muted/20">
           <p className="mb-2">
-            Number of users in database: {userCount[0]!.count}
+            Number of users in database: {userCount?.[0]!.count}
           </p>
 
           {session?.user?.email ? (

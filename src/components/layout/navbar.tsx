@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Bug, LogIn, Plus } from "lucide-react";
-import ThemeToggle from "@/lib/theme/theme-button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -9,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { auth, signIn, signOut } from "@/server/auth";
+import { auth, signOut } from "@/server/auth";
 import SignInButton from "../auth/auth-button";
 import { getThemeToggler } from "@/lib/theme/get-theme-button";
 
@@ -17,6 +16,7 @@ export default async function Navbar() {
   const session = await auth();
   const SetThemeButton = getThemeToggler();
 
+  console.log({ session });
   return (
     <div className="py-3 px-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex items-center justify-between sticky top-0 z-10 mb-2">
       <Link href="/" className="text-2xl font-bold italic tracking-tight">
@@ -38,7 +38,7 @@ export default async function Navbar() {
           </Link>
         </Button>
 
-        {session && session.user ? (
+        {session ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Avatar className="h-8 w-8 cursor-pointer">
@@ -52,7 +52,10 @@ export default async function Navbar() {
               </DropdownMenuItem>
               <DropdownMenuItem
                 className="cursor-pointer"
-                onClick={() => signOut()}
+                onClick={async () => {
+                  "use server";
+                  await signOut();
+                }}
               >
                 Sign out
               </DropdownMenuItem>

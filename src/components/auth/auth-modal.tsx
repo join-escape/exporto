@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Github, Mail } from "lucide-react";
-import { signIn } from "@/server/auth";
+import { handleSignIn } from "@/server/actions";
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -23,22 +23,27 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
           <DialogTitle>Sign in to Exporto</DialogTitle>
         </DialogHeader>
         <div className="flex flex-col gap-4 py-4">
-          <Button
-            variant="outline"
-            onClick={() => signIn("github")}
-            className="w-full"
+          <form
+            action={async () => {
+              await handleSignIn("github");
+            }}
           >
-            <Github className="mr-2 h-4 w-4" />
-            Continue with Github
-          </Button>
-          <Button
-            variant="outline"
-            onClick={() => signIn("google")}
-            className="w-full"
+            <Button variant="outline" type="submit" className="w-full">
+              <Github className="mr-2 h-4 w-4" />
+              Continue with Github
+            </Button>
+          </form>
+
+          <form
+            action={async () => {
+              await handleSignIn("google");
+            }}
           >
-            <Mail className="mr-2 h-4 w-4" />
-            Continue with Google
-          </Button>
+            <Button variant="outline" type="submit" className="w-full">
+              <Mail className="mr-2 h-4 w-4" />
+              Continue with Google
+            </Button>
+          </form>
         </div>
       </DialogContent>
     </Dialog>
